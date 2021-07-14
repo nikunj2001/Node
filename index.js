@@ -1,24 +1,11 @@
-const http = require('http')
-const index=(req,res)=>{
-        
-}
+const { dirname } = require('path');
+const path = require('path');
 
-
-const routes={
-    '/':function index(req,res){
-            res.writeHead(200);
-        res.end("Node Routing")
-    },
-    '/aboutus':function aboutus(req,res){
-    res.end("this is about page");
-}
-}
-http.createServer((req,res) =>{
-    if(req.url in routes){
-        return routes[req.url](req,res);
-    }
-    if(req.url=='/aboutus'){
-        return aboutus(req,res);;
-    }
-}).listen(8000);
-
+file=path.basename("nik.json")
+file=path.dirname("prog/nik.json")
+file=path.isAbsolute("prog/nik.json")
+let dir="prog"
+file=path.join("C:",dir,'text.json')
+file=path.parse('C/text.json')
+file=path.resolve('C/text.json')
+console.log(file);

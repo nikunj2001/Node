@@ -1,25 +1,24 @@
-// Working with files
-const fs = require('fs');
-fs.readFile("learnings.txt",'utf8',(err,data)=>{
-    if(err){
-        throw err;
+const http = require('http')
+const index=(req,res)=>{
+        
+}
+
+
+const routes={
+    '/':function index(req,res){
+            res.writeHead(200);
+        res.end("Node Routing")
+    },
+    '/aboutus':function aboutus(req,res){
+    res.end("this is about page");
+}
+}
+http.createServer((req,res) =>{
+    if(req.url in routes){
+        return routes[req.url](req,res);
     }
-    console.log(data);
-})
-const data = fs.readFileSync('learnings.txt',{encoding:"utf-8",flag:'r'});
-console.log(data);
+    if(req.url=='/aboutus'){
+        return aboutus(req,res);;
+    }
+}).listen(8000);
 
-
-fs.stat('learnings.txt',(err,stats)=>{
-        if(err){
-            console.log(err);
-            return;
-        }
-        console.log(stats.isFile());
-console.log(stats.size);
-
-})
-
-const content =[{
-    type:"Node Appliation"
-},];

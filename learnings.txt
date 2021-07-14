@@ -1,0 +1,17 @@
+Asynchrous Approach
+does not effect other code.
+does not stop anoter line bcoz of its timeout
+it is bcoz of event-Loop
+Call-BAck and promises
+CallBack-
+are used to solve the problem of async calls
+that is it completes the first task later and second task
+first which is not good sometimes
+login before register
+display user data before register
+higher order function -function inside function
+Callback hell occurs in this situtation
+to get out of this we use promises
+Async await is further better than promise
+it is asynchronous but seems synchronous
+await makes other functions wait until it completes itself

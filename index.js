@@ -1,30 +1,25 @@
-const http = require('http');
-const hostname = "127.0.0.1";
-const port  = 3000;
-const axios= require('axios');
-axios.post("https://reqres.in/api/users").then(res=>{
-    console.log(`Status code :${res.status}`);
-    console.log(`Body :${res.data}`);
+// Working with files
+const fs = require('fs');
+fs.readFile("learnings.txt",'utf8',(err,data)=>{
+    if(err){
+        throw err;
+    }
+    console.log(data);
+})
+const data = fs.readFileSync('learnings.txt',{encoding:"utf-8",flag:'r'});
+console.log(data);
+
+
+fs.stat('learnings.txt',(err,stats)=>{
+        if(err){
+            console.log(err);
+            return;
+        }
+        console.log(stats.isFile());
+console.log(stats.size);
+
 })
 
-// request
-
-// http.get('http://api.open-notify.org/iss-now.json',(res)=>{
-//     let data="";
-//     res.on('data',chunk=>{
-//         data+=chunk
-//     });
-
-//     res.on("end",()=>{
-//         console.log(data);
-//     })
-// })
-
-const server = http.createServer((req,res)=>{
-    res.statusCode = 200;
-    res.setHeader("Content-Type","text/plain");
-    res.end("welcome to Http Server");
-})
-server.listen(port,hostname,()=>{
-    console.log(`listeing on port ${port}`);
-})
+const content =[{
+    type:"Node Appliation"
+},];
